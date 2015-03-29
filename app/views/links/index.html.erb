@@ -1,0 +1,33 @@
+<div class="well">
+	<%= form_for Url.new, url: {action: 'create'}, html: {class: 'form-group'} do |f| %>
+		<div class="form-group">
+			<%= f.text_field :link, class: 'form-control', placeholder: 'Enter url to shorten' %>
+		</div>
+	  <%= f.submit 'Shorten', class: 'btn btn-default' %>
+	<% end %>
+</div>
+
+<% if flash[:short_url]  %>
+	<div class="well">
+		<code id="short_url"><%= flash[:short_url] %></code>
+	</div>
+<% end %>
+
+<div class="well">
+	<h3>Top 100</h3>
+	<table class="table table-hover table-striped">
+			<tr>
+				<th>Short Url</th>
+				<th>Original Url</th>
+				<th>Count</th>
+			</tr>
+			<% @urls.each do |url| %>
+				<tr>
+					<td><b><a href=<%= full_url url %> target='_blank'><%= full_url url %></a></b></td>
+					<td><b><a href=<%= url.link %> target='_blank'><%= url.link %></a></b></td>
+					<td><span class="badge badge-primary"><%= url.visits_count %></span></td>
+				</tr>
+			<% end %>
+	</table>
+</div>
+
