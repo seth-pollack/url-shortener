@@ -1,6 +1,8 @@
 
 [Url-Shortener](http://spollack-url-shortener.herokuapp.com/) by Seth Pollack
 
+See the instructions [here](https://github.com/seth-pollack/url-shortener/blob/master/INSTRUCTIONS.md)
+
 ###Setup & Installation:
 
 Clone the project with `git clone https://github.com/seth-pollack/url-shortener`
